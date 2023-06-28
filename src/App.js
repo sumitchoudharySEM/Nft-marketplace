@@ -1,22 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import * as fcl from '@onflow/fcl';
+
+fcl.config()
+.put("accessNode.api", "https://access-testnet.onflow.org")
+.put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn")
 
 function App() {
+
+const login= () =>{
+  fcl.authenticate();
+}
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        hello world
+        <button onClick={() =>login()}>Login</button>
       </header>
     </div>
   );
